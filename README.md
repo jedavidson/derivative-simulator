@@ -14,3 +14,7 @@ The base function can be transformed using sliders that control parameters such 
 - Parabolas
 - Cubics
 - Quartics
+
+## Resources
+- [math.js](http://mathjs.org/)
+- [SilentMatt's JavaScript Function Plotter](https://silentmatt.com/javascript-function-plotter/)
