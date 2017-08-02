@@ -18,7 +18,3 @@ The base function can be transformed using sliders that control parameters such 
 ## Resources
 - [math.js](http://mathjs.org/)
 - [SilentMatt's JavaScript Function Plotter](https://silentmatt.com/javascript-function-plotter/)
-
-## note to self
-"don't do any meme shit" 
- - James davidson, 2017
