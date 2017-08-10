@@ -1,10 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>Derivative Simulator</title>
+  <title>Derivative Simulator</title>
+
+  <!-- Loading required scripts/resources -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.16.0/math.min.js"></script> <!-- math.js; computing functions -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script> <!-- D3.js; the library which upon the base function plotter is built -->
+  <script src="https://wzrd.in/standalone/function-plot@1.14.0"></script> <!-- mauriciopoppe's Function Plot; main grapher -->
+  <!-- Styling the input field. -->
+  <link rel="stylesheet" type="text/css" href="styling.css">
+
 </head>
 <body>
-    <script src="derivative-simulator.js"></script>
+<form id="form"> <!-- entering the functions -->
+  <label for="graph">Enter an equation:</label>
+  <input type="text" id="graph" value="" />
+  <input type="submit" value="Draw" />
+</form>
+
+<div id="plot"></div> <!-- graphing window -->
+
+<script>
+  function drawFunctions() { // grapher
+    try {
+      functionPlot({
+        target: '#plot',
+        data: [{
+          fn: document.getElementById('graph').value,
+          sampler: 'builtIn',  // switch evaluator to math.js
+          graphType: 'polyline'
+        }]
+      });
+    }
+    catch (err) { // error handling
+      console.log(err);
+      alert(err);
+    }
+  }
+  document.getElementById('form').onsubmit = function (event) { // return input from form to script in order to graph
+    event.preventDefault();
+    drawFunctions();
+  };
+
+  drawFunctions();
+</script>
 </body>
 </html>
