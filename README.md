@@ -17,4 +17,4 @@ The base function can be transformed using sliders that control parameters such 
 
 ## Resources
 - [math.js](http://mathjs.org/)
-- [mauriciopoppe's Function Plot](https://github.com/mauriciopoppe/function-plot)
+- [mauriciopoppe's Function Plot](https://github.com/mauriciopoppe/function-plot) ([Wiki](https://mauriciopoppe.github.io/function-plot/))
