@@ -7,7 +7,7 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.16.0/math.min.js"></script> <!-- math.js; computing functions -->
   <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script> <!-- D3.js; the library which upon the base function plotter is built -->
   <script src="https://wzrd.in/standalone/function-plot@1.14.0"></script> <!-- mauriciopoppe's Function Plot; main grapher -->
-  <!-- Styling the input field. -->
+  <!-- Styling the input field -->
   <link rel="stylesheet" type="text/css" href="styling.css">
 
 </head>
@@ -21,15 +21,19 @@
 <div id="plot"></div> <!-- graphing window -->
 
 <script>
+  var functions = {linear_function: "x", parabola: "x^2", cubic: "x^3", quartic: "x^4"}
+  document.writeln("Select the function you want to graph.");
+
   function drawFunctions() { // grapher
     try {
       functionPlot({
         target: '#plot',
         data: [{
-          fn: document.getElementById('graph').value,
-          sampler: 'builtIn',  // switch evaluator to math.js
-          graphType: 'polyline'
-        }]
+        fn: 'x^2', color: 'red',
+        derivative: {
+          fn: '2 * x', updateOnMouseMove: true
+        }
+      }]
       });
     }
     catch (err) { // error handling
