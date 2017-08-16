@@ -12,17 +12,37 @@
 
 </head>
 <body>
-<form id="form"> <!-- entering the functions -->
+<!-- <form id="form">
   <label for="graph">Enter an equation:</label>
   <input type="text" id="graph" value="" />
   <input type="submit" value="Draw" />
-</form>
+</form> -->
 
 <div id="plot"></div> <!-- graphing window -->
 
 <script>
-  var functions = {linear_function: "x", parabola: "x^2", cubic: "x^3", quartic: "x^4"}
-  document.writeln("Select the function you want to graph.");
+  var functions = new Array();
+  var choices = new Array();
+  functions[0] = "Select the function you want to graph:"
+  choices[0] = new Array();
+  choices[0][0] = "Linear Function"
+  choices[0][1] = "Parabola"
+  choices[0][2] = "Cubic"
+  choices[0][3] = "Quartic"
+
+  function selectFunction() { // selecting function
+  for(i=0;i<functions.length;i++) {
+    document.writeln('<p>' + functions[i]+'</p>');
+    for(j=0;j<choices[i].length;j++) {
+      document.writeln('<input type="radio" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitFunction()' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label><br />');
+      }
+    }
+  }
+
+  function submitFunction(questionId, obj, classId, labelId){
+    useranswers[questionId] = obj.value;
+    answered++;
+  }
 
   function drawFunctions() { // grapher
     try {
@@ -31,21 +51,22 @@
         data: [{
         fn: 'x^2', color: 'red',
         derivative: {
-          fn: '2 * x', updateOnMouseMove: true
+          fn: '2*x', updateOnMouseMove: true
         }
       }]
       });
     }
-    catch (err) { // error handling
+    catch (err) {
       console.log(err);
       alert(err);
     }
   }
-  document.getElementById('form').onsubmit = function (event) { // return input from form to script in order to graph
+/*  document.getElementById('form').onsubmit = function (event) { // return input from form to script in order to graph
     event.preventDefault();
-    drawFunctions();
-  };
-
+    drawFunctions();*/
+/*  }; */
+  selectFunction();
+  submitFunction();
   drawFunctions();
 </script>
 </body>
