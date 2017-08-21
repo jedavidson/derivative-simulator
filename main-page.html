@@ -8,50 +8,49 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script> <!-- D3.js; the library which upon the base function plotter is built -->
   <script src="https://wzrd.in/standalone/function-plot@1.14.0"></script> <!-- mauriciopoppe's Function Plot; main grapher -->
   <!-- Styling the input field -->
-  <link rel="stylesheet" type="text/css" href="styling.css">
+  <!--<link rel="stylesheet" type="text/css" href="styling.css">-->
+  <style>
+	input[type=text] {
+	  width: 300px;
+	}
+	input {
+	  padding: 6px;
+	}
+	body, html, input {
+	  font-family: sans-serif;
+	  font-size: 11pt;
 
+	}
+	form {
+	  margin: 20px 0;
+	}
+</style>
 </head>
 <body>
-<!-- <form id="form">
-  <label for="graph">Enter an equation:</label>
-  <input type="text" id="graph" value="" />
-  <input type="submit" value="Draw" />
-</form> -->
+<!-- Buttons -->
+<p id="functionprompt">Click on the function you want to graph</p>
+<button id="linear-function" value="x" onClick="returnFunction(this)">Linear Function</button>
+<button id="parabola" value="x^2" onClick="returnFunction(this)">Parabola</button>
+<button id="cubic" value="x^3" onClick="returnFunction(this)">Cubic</button>
+<button id="quartic" value="x^4" onClick="returnFunction(this)">Quartic</button>
 
 <div id="plot"></div> <!-- graphing window -->
 
 <script>
-  var functions = new Array();
-  var choices = new Array();
-  functions[0] = "Select the function you want to graph:"
-  choices[0] = new Array();
-  choices[0][0] = "Linear Function"
-  choices[0][1] = "Parabola"
-  choices[0][2] = "Cubic"
-  choices[0][3] = "Quartic"
-
-  function selectFunction() { // selecting function
-  for(i=0;i<functions.length;i++) {
-    document.writeln('<p>' + functions[i]+'</p>');
-    for(j=0;j<choices[i].length;j++) {
-      document.writeln('<input type="radio" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitFunction()' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label><br />');
-      }
-    }
-  }
-
-  function submitFunction(questionId, obj, classId, labelId){
-    useranswers[questionId] = obj.value;
-    answered++;
-  }
-
+	var chosenFunction;
+	function returnFunction(objButton) {
+		alert(objButton.value);
+		chosenFunction = objButton.value;
+		return chosenFunction;
+	}
   function drawFunctions() { // grapher
     try {
       functionPlot({
         target: '#plot',
         data: [{
-        fn: 'x^2', color: 'red',
+        fn: chosenFunction.value, color: 'red',
         derivative: {
-          fn: '2*x', updateOnMouseMove: true
+          fn: math.derivative(chosenFunction.value, 'x'), updateOnMouseMove: false
         }
       }]
       });
@@ -65,8 +64,7 @@
     event.preventDefault();
     drawFunctions();*/
 /*  }; */
-  selectFunction();
-  submitFunction();
+	
   drawFunctions();
 </script>
 </body>
