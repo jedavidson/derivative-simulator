@@ -1,17 +1,17 @@
-input[type=text] {
-  width: 300px;
-}
-
-input {
-  padding: 6px;
-}
-
 body, html, input {
   font-family: sans-serif;
   font-size: 11pt;
 
 }
-
-form {
-  margin: 20px 0;
+#linear-function{
+  color:blue;
+}
+#parabola{
+  color:red;
+}
+#cubic{
+  color:orange;
+}
+#quartic{
+  color:green;
 }
