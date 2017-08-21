@@ -37,33 +37,31 @@
 <div id="plot"></div> <!-- graphing window -->
 
 <script>
-	var chosenFunction;
-	function returnFunction(objButton) {
-		alert(objButton.value);
-		chosenFunction = objButton.value;
-		return chosenFunction;
-	}
   function drawFunctions() { // grapher
     try {
       functionPlot({
         target: '#plot',
         data: [{
-        fn: chosenFunction.value, color: 'red',
-        derivative: {
-          fn: math.derivative(chosenFunction.value, 'x'), updateOnMouseMove: false
-        }
-      }]
-      });
-    }
-    catch (err) {
+          fn: 'x * x',
+          derivative: {
+            fn: '2 * x',
+            updateOnMouseMove: true
+          }
+        }, {
+          fn: 'x * x * x',
+          derivative: {
+            fn: '3 * x * x',
+            updateOnMouseMove: true
+          }
+        }]
+      })
+    } catch (err) {
       console.log(err);
       alert(err);
     }
   }
-/*  document.getElementById('form').onsubmit = function (event) { // return input from form to script in order to graph
-    event.preventDefault();
-    drawFunctions();*/
-/*  }; */
+  /*document.getElementById('form').onsubmit = function (event) { // return input from form to script in order to graph
+  event.preventDefault(); */
 	
   drawFunctions();
 </script>
