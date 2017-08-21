@@ -1,3 +1,26 @@
+/* 
+The background for the index.html file is 1920x1080. It is further cut horizontally into two equal halves
+(such that each half is 1920x540). There will be 4 images displayed in the lower half, each with dimensions 300x300.
+
+The HORIZONTAL spacing between each image and the edges of the background is 144px.
+The VERTICAL spacing between the top and bottom part of the half is 120px.
+
+The lower half of the page should look something like this:
+
+--- 144 | 300 | 144 | 300 | 144 | 300 | 144 | 300 | 144 ---
+120  x     x     x     x     x     x     x     x     x  120
+---                                                     ---
+300  x   image   x   image   x   image   x   image   x  300
+---                                                     ---
+120  x     x     x     x     x     x     x     x     x  120
+--- 144 | 300 | 144 | 300 | 144 | 300 | 144 | 300 | 144 ---
+
+Please take this into account when doing padding in CSS. Keep in mind each image will be a clickable hyperlink.
+
+That's all for now,
+James
+*/
+
 body, html, input {
   font-family: sans-serif;
   font-size: 11pt;
