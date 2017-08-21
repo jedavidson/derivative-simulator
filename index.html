@@ -11,45 +11,26 @@
   <link rel="stylesheet" type="text/css" href="styling.css">
 </head>
 <body>
-<!-- Buttons -->
-<p id="functionprompt">Click on the function you want to graph</p>
-<button id="linear-function" value="x">Linear Function</button>
-<button id="parabola" value="x^2">Parabola</button>
-<button id="cubic" value="x^3">Cubic</button>
-<button id="Hyperbola" value="x^-1">Hyperbola</button>
-
 <div id="plot"></div> <!-- graphing window -->
 <script>
-  /*var selected_function; 
-  function returnFunction(objButton) { 
-    if(selected_function === null) {
-      break returnFunction; 
-    }
-    selected_function = objButton.value; 
-    console.log(selected_function); 
-    return selected_function; }
-
-  document.getElementById("linear-function").addEventListener("click", returnFunction(this));
-  document.getElementById("parabola").addEventListener("click", returnFunction(this));
-  document.getElementById("cubic").addEventListener("click", returnFunction(this));*/
-
+  // standard forms
   var linear_function = '1*x^1 + 0*x^0'; // linear function
   var parabola = '1*x^2 + 0*x^1 + 0*x^0'; // parabola
   var cubic = '1*x^3 + 0*x^2 + 0*x^1 + 0*x^0'; // cubic
-
+  var hyperbola = '1*x^-1 + 1*x^0'; // hyperbola
   function differentiate(expression) { // differentiate expression in respect to x
     var derivative;
     if (expression.slice(3, 4) === '^1') { // if the function is a linear function
-      derivative = String(Number(expression[0])*Number(expression[4])) + '*x^0';
+      derivative = String(Number(expression[0])*Number(expression[4])), '*x^0';
     } else if (expression.slice(3, 4) === '^2') { // if the function is a parabola
-      derivative = String(Number(expression[0])*Number(expression[4])) + '*x^1' + String(Number(expression[8])*Number(expression[12])) + '*x^0';
+      derivative = String(Number(expression[0])*Number(expression[4])), '*x^1', String(Number(expression[8])*Number(expression[12])), '*x^0';
     } else if (expression.slice(3, 4) === '^3') { // if the function is a cubic
-      derivative = String(Number(expression[0])*Number(expression[4])) + '*x^2' + String(Number(expression[8])*Number(expression[12])) + '*x^1' + String(Number(expression[16])*Number(expression[20])) + '*x^0'; 
+      derivative = String(Number(expression[0])*Number(expression[4])), '*x^2', String(Number(expression[8])*Number(expression[12])), '*x^1', String(Number(expression[16])*Number(expression[20])), '*x^0'; 
+    } else if (expression.slice(3, 5) === '^-1') { // if the function is a hyperbola
+      derivative = String(Number(expression[0])*-(Number(expression[4]))) + '*x^-2';
     }
     return derivative;
-
   }   
-
   }
   function drawFunctions() { // grapher
     try {
@@ -60,7 +41,7 @@
           derivative: {
             fn: math.derivative('x^4', 'x'), updateOnMouseMove: true
           }
-        }, /*{
+        }, /*{ --> second datum set
           fn: 'x * x * x',
           derivative: {
             fn: '3 * x * x', updateOnMouseMove: true
