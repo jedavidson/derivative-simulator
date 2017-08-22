@@ -21,20 +21,28 @@ That's all for now,
 James
 */
 
-body, html, input {
-  font-family: sans-serif;
-  font-size: 11pt;
+body{
+	background-image:url(images/bg.png);
+	background-origin:content-box;
+}
 
+#A{
+	width:300px;
+	height:300px;
+	position:absolute; top:660px; left:144px;
 }
-#linear-function{
-  color:blue;
+#B{
+	width:300px;
+	height:300px;
+	position:absolute; top:660px; left:588px;
 }
-#parabola{
-  color:red;
+#C{
+	width:300px;
+	height:300px;
+	position:absolute; top:660px; left:1032px;
 }
-#cubic{
-  color:orange;
-}
-#quartic{
-  color:green;
+#D{
+	width:300px;
+	height:300px;
+	position:absolute; top:660px; left:1476px;
 }
