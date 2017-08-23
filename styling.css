@@ -21,27 +21,27 @@ That's all for now,
 James
 */
 
-body{
+body {
 	background-image:url(images/bg.png);
 	background-origin:content-box;
 }
 
-#A{
+#linear-function-link {
 	width:300px;
 	height:300px;
 	position:absolute; top:660px; left:144px;
 }
-#B{
+#parabola-link {
 	width:300px;
 	height:300px;
 	position:absolute; top:660px; left:588px;
 }
-#C{
+#cubic-link {
 	width:300px;
 	height:300px;
 	position:absolute; top:660px; left:1032px;
 }
-#D{
+#hyperbola-link {
 	width:300px;
 	height:300px;
 	position:absolute; top:660px; left:1476px;
