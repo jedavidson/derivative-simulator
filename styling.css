@@ -13,19 +13,12 @@ also we can probably get away with one styling file if you give the homepage bod
 */
 
 body{
-	background-image:url(Images/bg.png);
+	background-image:url(images/function-background.png);
 	background-origin:content-box;
 }
-
-#Linear{
-	position:absolute; top:469px; left:102px;
+#back{
+	position:absolute; top:20px; left:20px;
 }
-#Parabola{
-	position:absolute; top:469px; left:418px;
-}
-#Cubic{
-	position:absolute; top:469px; left:734px;
-}
-#Hyperbola{
-	position:absolute; top:469px; left:1050px;
+#plot{
+	position:absolute; top:183px; left:283px;
 }
