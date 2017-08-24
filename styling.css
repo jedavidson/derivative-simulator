@@ -1,5 +1,19 @@
+/* more documentation stuff for CSS
+
+nothing has changed on homepage, thats all good/finished.
+for the backgrounds on the individual function pages, as per what i said, they share the same background
+they also have the same button image (125x40) used for navigating back to the index/homepage
+
+- the button should be in the top left corner with 20x20 (px) padding to give it some nice spacing
+- the graphing window itself should have horizontal padding of 483 and vertical padding of 183 from the left side and top respectively
+- idk where i will put sliders yet but we'll figure it
+
+also we can probably get away with one styling file if you give the homepage body a unique id
+
+*/
+
 body{
-	background-image:url(images/bg.png);
+	background-image:url(Images/bg.png);
 	background-origin:content-box;
 }
 
