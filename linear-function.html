@@ -23,38 +23,33 @@
 <script>
   var vertical_shift = 0;
   var gradient = 1;
-  var equation = "1*x^1 + 0*x^0";
+  var equation = "1*x^8";
   var derivative_equation;
 
-  function getValuesFromSliders() {
-    vertical_shift = document.getElementById("vertical-shift-slider").value;
-    gradient = document.getElementById("vertical-shift-slider").value;
+  function differentiate(expression) {
+    if (expression.slice(3, 4) === '^1') {
+      derivative_equation = Number(expression[0]);
+    }
   }
 
-/*  function differentiate(expression) {
-    if (expression.slice(3, 4) === '^1') {
-      derivative_equation = String(String(Number(expression[0])*Number(expression[4])), '*x^0');
+  function pushUpdates() {
+    vertical_shift = document.getElementById("vertical-shift-slider").value;
+    gradient = document.getElementById("gradient-slider").value;
+    if (Number(vertical_shift) > 0) {
+      equation = String(vertical_shift) + "*x^1 +" + String(vertical_shift);
+    } else {
+        equation = String(vertical_shift) + "*x^1 " + String(vertical_shift);  
     }
-    return derivative_equation;
-  }*/
+    console.log(equation[4])
+    drawGraphs(equation, derivative_equation);
+  }
 
-  function drawGraphs() {
-    try {
-      functionPlot({width: 400, height: 400, target: '#plot', data: [{fn: equation}, {fn: equation}]})
-    } catch (error) {
-      console.log(error);
-      alert(error);
-    }
+  function drawGraphs(fx, ddx) {
+    functionPlot({width: 400, height: 400, target: '#plot', data: [{fn: String(fx)}, {fn: String(fx)}]})
   } 
 
-  /*if (!(derivative_equation == null)) {
-    getValuesFromSliders();
-    // differentiate(expression);
-    drawGraphs();
-  }*/
 
-  drawGraphs();
-
+  pushUpdates();
 </script>
 </body>
 </html>
