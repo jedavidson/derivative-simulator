@@ -22,3 +22,12 @@ body{
 #plot{
 	position:absolute; top:183px; left:283px;
 }
+#vertical-shift-slider{
+	position:absolute; top:193px; left:888px;
+}
+#gradient-slider{
+	position:absolute; top:253px; left:888px;
+}
+#update{
+	position:absolute; top:293px; left:953px;
+}
